@@ -24,7 +24,6 @@ export default function App() {
       .then((res) => res.json())
       .then((json) => setData(json.products));
   }, []);
-  console.log("data", data);
   return (
     <div className="ag-theme-alpine" style={{ height: 400, width: 600 }}>
       <AgGridReact
