@@ -13,7 +13,12 @@ const columns = [
 ];
 export default function App() {
   const [data, setData] = useState([]);
-
+  const defaultColDef = {
+    filter: "true",
+    sortable: "true",
+    editable: "true",
+    resizeble: "true"
+  };
   useEffect(() => {
     fetch("https://dummyjson.com/products")
       .then((res) => res.json())
@@ -22,7 +27,11 @@ export default function App() {
   console.log("data", data);
   return (
     <div className="ag-theme-alpine" style={{ height: 400, width: 600 }}>
-      <AgGridReact rowData={data} columnDefs={columns}></AgGridReact>
+      <AgGridReact
+        rowData={data}
+        columnDefs={columns}
+        defaultColDef={defaultColDef}
+      ></AgGridReact>
     </div>
   );
 }
